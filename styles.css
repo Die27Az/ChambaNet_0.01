@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: #411a95;
+}
+
+#jobsList {
+    margin-top: 20px;
+  }
+
+.navbar {
+  background: linear-gradient(to right, #eba2d0, #891157)
+  
+}
+
+#btnSearchJobs {
+  background: #411a95;
+}
+
+#btnaddjobs {
+  background: #891157;
+}

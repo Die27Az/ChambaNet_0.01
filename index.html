@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chambanet</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light h-25">
+    <a class="navbar-brand w-25" href="#"><img src="/img/chambanet 1.png" class="w-25" alt=""></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <button class="btn btn-link nav-link text-light" data-toggle="modal" data-target="#registerModal">Registro</button>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-link nav-link text-light" data-toggle="modal" data-target="#loginModal">Iniciar Sesión</button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6 mt-5">
+        <h1 id="title"class="mb-4">ChambaNet <p>Tu lugar de Chamba</p></h1>
+      </div>
+      <div class="col-md-4 d-none d-lg-block">
+        <img class="w-75 mx-1"  src="/img/chambes.png" alt="">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <input type="text" id="searchInput" class="form-control mb-3" placeholder="Buscar trabajos...">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 bt-5">
+        <button class="btn  btn-block mb-3 text-light"  id="btnaddjobs" data-toggle="modal" data-target="#addJobModal">Agregar Trabajo</button>
+      </div>
+      <div class="col-md-4 bt-5">
+        <button class="btn  btn-block mb-3 text-light" id="btnSearchJobs">Buscar Trabajo</button>
+      </div>
+    </div>
+    <div id="jobsList">
+      <!-- Aquí se agregarán dinámicamente las cards de los trabajos -->
+    </div>
+  </div>
+
+  <!-- Modal de Registro (en construcción) -->
+  <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="registerModalLabel">Registro (En Construcción)</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Disculpa, esta función está en construcción.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Inicio de Sesión -->
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Inicio de Sesión</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="loginForm">
+            <div class="form-group">
+              <label for="username">Usuario</label>
+              <input type="text" class="form-control" id="username" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Contraseña</label>
+              <input type="password" class="form-control" id="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#registerModal">Registrar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para agregar trabajo -->
+  <div class="modal fade" id="addJobModal" tabindex="-1" role="dialog" aria-labelledby="addJobModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addJobModalLabel">Agregar Trabajo</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="jobForm">
+            <div class="form-group">
+              <label for="jobTitle">Título</label>
+              <input type="text" class="form-control" id="jobTitle" required>
+            </div>
+            <div class="form-group">
+              <label for="jobEmployer">Nombre del Empleador</label>
+              <input type="text" class="form-control" id="jobEmployer" required>
+            </div>
+            <div class="form-group">
+              <label for="jobLocation">Dirección</label>
+              <input type="text" class="form-control" id="jobLocation" required>
+            </div>
+            <div class="form-group">
+              <label for="jobPayment">Pago</label>
+              <input type="text" class="form-control" id="jobPayment" required>
+            </div>
+            <div class="form-group">
+              <label for="jobDescription">Descripción</label>
+              <textarea class="form-control" id="jobDescription" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Agregar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para aceptar trabajo -->
+  <div class="modal fade" id="acceptJobModal" tabindex="-1" role="dialog" aria-labelledby="acceptJobModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="acceptJobModalLabel">Información del Trabajo</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="jobDetails">
+          <!-- Aquí se llenará dinámicamente la información del trabajo aceptado -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" id="btnPerformJob">Realizar Trabajo</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
